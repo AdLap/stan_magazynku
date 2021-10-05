@@ -1,6 +1,6 @@
 import React from "react";
-import { Box, Button, ButtonGroup, Container, TextField } from "@mui/material";
-import { Create, Login } from "@mui/icons-material";
+import { Box, Button, Container, TextField } from "@mui/material";
+import { Login } from "@mui/icons-material";
 
 const LogIn = () => {
     return (
@@ -29,7 +29,7 @@ const LogIn = () => {
                     type='email'
                     label='email'
                     sx={{
-                        marginBottom: 5
+                        marginBottom: 3
                     }}
                 />
                 <TextField
@@ -38,31 +38,19 @@ const LogIn = () => {
                     type='password'
                     label='hasło'
                 />
-
-                <ButtonGroup
+                <Button
+                    variant='contained'
                     size='normal'
                     color='primary'
+                    startIcon={<Login />}
                     sx={{
-                        marginTop: 10,
-                        gap: 5
+                        marginTop: 5
                     }}
                 >
-                    <Button
-                        variant='contained'
-                        startIcon={<Login />}
-                    >
-                        Logowanie
-                    </Button>
-                    <Button
-                        variant='contained'
-                        startIcon={<Create />}
-                    >
-                        Rejestracja
-                    </Button>
-                </ButtonGroup>
+                    Logowanie
+                </Button>
             </Box>
         </Container>
-
     );
 }
 
