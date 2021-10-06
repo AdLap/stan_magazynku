@@ -1,6 +1,6 @@
 import React from 'react';
 import { AppBar, Button, Toolbar, Typography, Box } from '@mui/material';
-import StoreIcon from '@mui/icons-material/Store';
+
 
 const Header = () => {
     return (
@@ -10,7 +10,7 @@ const Header = () => {
                     <Typography sx={{ flexGrow: 1 }} variant='h6'>
                         Magazynek
                     </Typography>
-                    <Button color='inherit'>Zaloguj</Button>
+                    <Button color='inherit' href='/login'>Zaloguj</Button>
                 </Toolbar>
             </AppBar>
         </Box>

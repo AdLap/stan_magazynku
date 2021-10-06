@@ -4,16 +4,18 @@ import { BrowserRouter } from "react-router-dom";
 import Header from "./header/Header";
 import Home from './home/Home';
 import Category from "./itemContent/Category";
-//import LogIn from "./login/Login";
+import LogIn from "./auth/login/Login";
+import Register from "./auth/register/Register";
 
 const App = () => {
   return (
     <>
-      <Header />
-      {/* <LogIn /> */}
       <BrowserRouter>
+        <Header />
         <Switch>
           <Route exact path='/' component={Home} />
+          <Route path='/login' component={LogIn} />
+          <Route path='/rejestracja' component={Register} />
           <Route path='/kategorie' component={Category} />
         </Switch>
       </BrowserRouter>

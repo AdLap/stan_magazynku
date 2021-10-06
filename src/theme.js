@@ -1,5 +1,5 @@
 import { createTheme } from '@mui/material/styles';
-import blue from '@mui/material/colors/blue';
+import { blue, red } from '@mui/material/colors';
 
 
 const theme = createTheme({
@@ -11,6 +11,7 @@ const theme = createTheme({
       // dark: will be calculated from palette.secondary.main,
       contrastText: '#ffcc00',
     },
+    error: red,
     // Used by `getContrastText()` to maximize the contrast between
     // the background and the text.
     contrastThreshold: 3,
