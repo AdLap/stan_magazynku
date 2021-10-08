@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import { Box, Button, Container, TextField } from "@mui/material";
-import { Create, Login } from "@mui/icons-material";
+import React from "react";
+import { Box, Button, Container, Link, TextField } from "@mui/material";
+import { Login } from "@mui/icons-material";
 import { useFormik } from "formik";
 import * as Yup from 'yup';
 
@@ -16,7 +16,6 @@ const validationSchema = Yup.object({
 });
 
 const LogIn = () => {
-    const [user, setUser] = useState(null);
 
     const formik = useFormik({
         initialValues: {
@@ -25,8 +24,7 @@ const LogIn = () => {
         },
         validationSchema: validationSchema,
         onSubmit: values => {
-            setUser(values);
-            console.log(user)
+            console.log(values)
         }
     });
 
@@ -102,20 +100,19 @@ const LogIn = () => {
                         Logowanie
                     </Button>
                 </Box>
-                <Button
+                <Link
                     href='/rejestracja'
                     variant='contained'
                     size='small'
                     color='primary'
-                    startIcon={<Create />}
                     sx={{
                         position: 'absolute',
-                        bottom: '1rem',
+                        bottom: '.5rem',
                         right: '1rem'
                     }}
                 >
                     Utwórz konto
-                </Button>
+                </Link>
             </Box>
         </Container >
     );

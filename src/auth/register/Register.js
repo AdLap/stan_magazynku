@@ -1,10 +1,14 @@
-import React, { useState } from "react";
-import { Box, Button, Container, TextField } from "@mui/material";
-import { Create, Login } from "@mui/icons-material";
+import React from "react";
+import { Box, Button, Link, Container, TextField } from "@mui/material";
+import { Login } from "@mui/icons-material";
 import { useFormik } from "formik";
 import * as Yup from 'yup';
 
 const validationSchema = Yup.object({
+    name: Yup
+        .string('Wpisz imię')
+        .min(2, 'Imię powinno mieć minimum 2 znaki')
+        .required('Wpisz'),
     email: Yup
         .string('Wpisz swój email')
         .email('Wpisz prawidłowy email')
@@ -16,17 +20,16 @@ const validationSchema = Yup.object({
 });
 
 const Register = () => {
-    const [user, setUser] = useState(null);
 
     const formik = useFormik({
         initialValues: {
+            name: '',
             email: '',
             password: ''
         },
         validationSchema: validationSchema,
         onSubmit: values => {
-            setUser(values);
-            console.log(user)
+            console.log(values)
         }
     });
 
@@ -60,9 +63,21 @@ const Register = () => {
                         justifyContent: 'center',
                         alignItems: 'center',
                     }}
-
                 >
-
+                    <TextField
+                        name='name'
+                        label='imię'
+                        type='string'
+                        value={formik.values.string}
+                        onChange={formik.handleChange}
+                        error={formik.touched.name && Boolean(formik.errors.name)}
+                        helperText={formik.touched.name && formik.errors.name}
+                        variant='standard'
+                        color='primary'
+                        sx={{
+                            marginBottom: 3
+                        }}
+                    />
                     <TextField
                         name='email'
                         label='email'
@@ -102,20 +117,19 @@ const Register = () => {
                         Utwórz konto
                     </Button>
                 </Box>
-                <Button
+                <Link
                     href='/login'
                     variant='contained'
                     size='small'
                     color='primary'
-                    startIcon={<Create />}
                     sx={{
                         position: 'absolute',
-                        bottom: '1rem',
+                        bottom: '.5rem',
                         right: '1rem'
                     }}
                 >
                     Zaloguj
-                </Button>
+                </Link>
             </Box>
         </Container >
     );

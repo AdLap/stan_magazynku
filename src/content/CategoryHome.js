@@ -1,10 +1,13 @@
+// category list
+
 import React from "react";
 import Grid from "@mui/material/Grid";
 
-const Category = () => {
+const CategoryHome = () => {
     return (
         <Grid container>
             <Grid item container>
+                {/* CategoryItem.map  below */}
                 <Grid item sm={2} />
                 <Grid item>Kable</Grid>
                 <Grid item>Narzędzia</Grid>
@@ -14,4 +17,4 @@ const Category = () => {
     );
 }
 
-export default Category;
+export default CategoryHome;
