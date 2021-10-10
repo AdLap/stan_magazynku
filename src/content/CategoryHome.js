@@ -2,19 +2,25 @@
 
 import React from "react";
 import Grid from "@mui/material/Grid";
+import { connect } from 'react-redux';
 
-const CategoryHome = () => {
+const CategoryHome = ({ category }) => {
+    console.log(category)
     return (
-        <Grid container>
-            <Grid item container>
-                {/* CategoryItem.map  below */}
-                <Grid item sm={2} />
-                <Grid item>Kable</Grid>
-                <Grid item>Narzędzia</Grid>
-                <Grid item sm={2} />
-            </Grid>
+        <Grid container spacing={2}>
+            {
+                category && category.map(category => (
+                    <Grid item key={category.id}>{category.name}</Grid>
+                ))
+            }
         </Grid>
     );
 }
 
-export default CategoryHome;
+const mapStateToProps = state => {
+    return {
+        category: state.category.category
+    }
+}
+
+export default connect(mapStateToProps)(CategoryHome);
