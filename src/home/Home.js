@@ -1,5 +1,7 @@
 import { Grid, Typography } from "@mui/material";
 import React from "react";
+import AddCategory from "../content/AddCategory";
+import AddItem from "../content/AddItem";
 
 const Home = () => {
     return (
@@ -20,13 +22,13 @@ const Home = () => {
                 xs={6}
                 sx={{ border: '1px solid red' }}
             >
-                Lewy box
+                <AddCategory />
             </Grid>
             <Grid item
-                xs={5}
+                xs={6}
                 sx={{ border: '1px solid green' }}
             >
-                Prawy box
+                <AddItem />
             </Grid>
         </Grid>
     );

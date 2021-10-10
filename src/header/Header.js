@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppBar, Button, Toolbar, Typography, Box } from '@mui/material';
+import { AppBar, Button, Link, Toolbar, Typography, Box } from '@mui/material';
 
 
 const Header = () => {
@@ -8,9 +8,9 @@ const Header = () => {
             <AppBar position='static'>
                 <Toolbar>
                     <Typography sx={{ flexGrow: 1 }} variant='h6'>
-                        Magazynek
+                        <Button href='/' color='inherit'>Magazynek</Button>
                     </Typography>
-                    <Button color='inherit' href='/login'>Zaloguj</Button>
+                    <Button href='/login' color='inherit'>Zaloguj</Button>
                 </Toolbar>
             </AppBar>
         </Box>
